@@ -11,7 +11,7 @@ class IInventoryService(ABC):
         pass
     
     @abstractmethod
-    def __updateColumnsNames__(series_number: str) -> str:
+    def __getEanCodeBySeriesNumber__(series_number: str) -> str:
         pass
     
     @abstractmethod
