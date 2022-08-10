@@ -6,5 +6,5 @@ class InventoryController:
     def __init__(self, service: Type[IInventoryService]):
         self.service = service
     
-    def read_inventory(self, filePath: str, tag: str):
-        self.service.readInventory(filePath, tag)
+    def read_inventory(self):
+        self.service.readInventory()

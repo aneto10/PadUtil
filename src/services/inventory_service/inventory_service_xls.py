@@ -7,6 +7,10 @@ import pandas as pd
 
 class InventoryServiceXLS(IInventoryService):
 
+    def __init__(self, filepath, tag):
+        self.filepath = filepath
+        self.tag = tag
+
     def __updateColumnsNames__(columns):
         updatedColumns = {columns[0]:'Placa', 
                         columns[1] : 'Modelo',
