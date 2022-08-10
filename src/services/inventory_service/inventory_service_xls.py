@@ -34,8 +34,8 @@ class InventoryServiceXLS(IInventoryService):
     def __getEanCodeBySeriesNumber__(series_number: str):
         return series_number.str.slice(4, 20)
 
-    def readInventory(filePath: str, tag: str) -> Any:
-      dataFromXLSFile = pd.read_excel(filePath, sheet_name=0)
+    def readInventory(self) -> Any:
+      dataFromXLSFile = pd.read_excel(self.filepath, sheet_name=0)
       dataFromXLSFile = pd.DataFrame(dataFromXLSFile)
       
       quantityOfColumns = len(dataFromXLSFile.columns)
@@ -57,7 +57,7 @@ class InventoryServiceXLS(IInventoryService):
       dataFromXLSFile.rename(columns=updatedColumnsNames, inplace = True)
     
       dataFromXLSFile['EAN'] = InventoryServiceXLS.__getEanCodeBySeriesNumber__(dataFromXLSFile['Numero_de_serie'])
-      dataFromXLSFile['Região'] = tag
+      dataFromXLSFile['Região'] = self.tag
 
       dataFromXLSFile.sort_values(by=['NE', 'Chassi_Id', 'Modelo'])
       
