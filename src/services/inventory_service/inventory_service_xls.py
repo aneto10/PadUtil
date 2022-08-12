@@ -11,7 +11,7 @@ class InventoryServiceXLS(IInventoryService):
         self.filepath = filepath
         self.tag = tag
 
-    def __updateColumnsNames__(columns):
+    def __updateColumnsNames__(columns) -> dict[str]:
         updatedColumns = {columns[0]:'Placa', 
                         columns[1] : 'Modelo',
                         columns[2] : 'Numero_de_serie', 

@@ -7,7 +7,7 @@ from abc import ABC, abstractmethod
 class IInventoryService(ABC):
     
     @abstractmethod
-    def __updateColumnsNames__(columns):
+    def __updateColumnsNames__(columns) -> dict[str]:
         pass
     
     @abstractmethod
